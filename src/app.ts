@@ -1,11 +1,15 @@
 import * as express from "express";
-
-const app = express();
+import { Application, Request, Response, NextFunction } from "express";
 
 const PORT = process.env.PORT || 5000;
+const app: Application = express();
 
-app.get("/", (req, res) => {
-  res.send("hello");
+const cors = require("cors");
+
+app.use(cors());
+
+app.get("/", (req: Request, res: Response, next: NextFunction) => {
+  res.send("test.........");
 });
 
 app.listen(PORT, () => {
